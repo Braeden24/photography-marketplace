@@ -1,0 +1,90 @@
+<!--
+      Author: Braeden
+      Date: 9/10/2024
+
+      Filename: shop.html
+   -->
+
+<!DOCTYPE html>
+<html>
+<head>
+   <meta charset="utf-8">
+   <meta name="viewport" content="width=device-width,initial-scale=1.0">
+   <title>Photography</title>
+   <link rel="stylesheet" href="styles4.css">
+   <script src = "js1.js" defer></script>
+</head>
+
+<body>
+   <header>
+      <img src="Banners/Shop.png" alt="shop">
+	  <!--Navigation Bar-->
+	  <div class="nav">
+        <a href="home.html">Home</a>
+		<a href="animals.html">Animals</a>
+		<a href="plants.html">Plants</a>
+		<a href="landscape.html">Landscape</a>
+		<a href="photographers.html">Photographers</a>
+		<a id = "shop" href="shop.html">Buy a Photo</a>
+	  </div>
+   </header>
+        
+      <article class="container">
+		<div class="item photoForm">
+         <form id="orderForm" name="orderForm" method="get" action="submit.html">
+			<fieldset>
+				<legend><strong>Buy A Photo</strong></legend>
+				<label for="category">Choose a category:</label>
+					<select id="category" name="category">
+						<option>choose a category</option>
+						<option value="animals">Animals</option>
+						<option value="plants">Plants</option>
+						<option value="landscapes">Landscapes</option>
+					</select>
+						
+				<label for="photos">Choose a photo:</label>
+					<select id="photos" name="photos">
+						<option>Choose a photo</option>
+					</select>
+				
+				<label for="sizes">Choose a photo size</label>
+						<input type="radio" id="Small" value="5" name="sizes">Small ($5.00)</input>
+						<input type="radio" id="Medium" value="10" name="sizes"checked>Medium ($10.00)</input>
+						<input type="radio" id="Large" value="15" name="sizes">Large ($15.00)</input>
+			</fieldset>		
+			<fieldset>
+				<button type = "button" id="addPhoto">Add Photo</button>
+				<button type = "button" id="calcTotal">Calculate Total</button>
+				<button type = "button" id="clearCart">Clear Cart</button>
+			</fieldset>
+		</div>
+		<div class="item photoPreview">
+			<h1>Photo Preview</h1>
+			<div id="preview">
+			
+			</div>
+		</div>
+		
+		<div class="item photoTotal">
+			<h1>Estimated Total</h1>
+			<p>Choosen Photos</p>
+				<ul id="cart">
+				</ul>
+			<p id="photoTotal">Photo Total:</p>
+			<p id="salesTax">Sales Tax:</p>
+			<p id="total">Total:</p>
+			<input type="submit" value="Next" /> 
+		</div>
+		
+		<div class="item PhotoList">
+			<table id="photoCart">
+			</table>
+		</div>
+	</form>
+    </article>
+    <footer class="item footer">
+		<p>Author: Braeden Carlson</p>
+		<p><a href="Bcarlson4942@gmail.com">Bcarlson4942@gmail.com</a></p>
+	</footer>
+</body>
+</html>

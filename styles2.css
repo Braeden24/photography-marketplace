@@ -1,0 +1,109 @@
+@charset "utf-8";
+
+/*
+      Author: Braeden
+      Date: 8/27/2024
+
+      Filename: styles2.css
+*/
+
+/*Html and Body Styles*/
+html {
+   width: 100%;
+   background: url(woodBackground.jpg) center/ 100% fixed no-repeat;
+}
+
+body {
+   min-width: 350px;
+   max-width: 1500px;
+   width: 100%;
+   margin: 0px auto;
+   background-color: ivory;
+   border-style: solid;
+}
+
+
+header img {
+   display: block;
+   width: 100%;
+}
+/*Topnav Styles*/
+.nav {
+  overflow: hidden;
+  background-color: black;
+}
+
+.nav a {
+  float: left;
+  font-size: 20px;
+  color: ivory;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  border-left: 1px solid grey;
+  border-right: 1px solid grey;
+}
+
+.nav a .shop {
+	float: right;
+}
+
+.nav a:hover{
+  background-color: grey;
+}
+
+article {
+	background-color: white;
+	font-size: 1.2em;
+	width: 100%;
+	display:flex;
+	background: ivory;
+}
+.grid-container {
+	display: grid;
+	grid-template-columns: 50% 50%;
+}
+.grid-item_1 {
+	border-top: 10px double black;
+	border-bottom: 10px double black;
+	border-right: 3px solid black;
+	padding-right: 15px;
+}
+.grid-item_2 {
+	border-top: 10px double black;
+	border-bottom: 10px double black;
+	border-right: 3px solid black;
+	padding-right: 15px;
+}
+
+article p {
+	padding: 15px;
+	width: 100%;
+	text-align: center;
+}
+
+article h1{
+	color: black;
+	text-align: center;
+}
+article h2{
+	color: grey;
+	text-align: center;
+}
+
+article img {
+	margin: 10px 10px 10px 10px;
+	height: 300px;
+	width: 300px;
+	float: left;
+	border: 5px solid black;
+	object-fit: cover;
+}
+
+footer {
+	width: 100%;
+	color: black;
+	text-align: center;
+	font-size: 1.5em;
+	border-top: 5px solid black;
+}
