@@ -1,4 +1,4 @@
-const photos [
+const photos = [
 
   //Animals
   {
@@ -193,4 +193,5 @@ const photos [
     photographer: "Sue Carlson",
     category: "plants",
     image: "assets/landscapes/sc-treerock.jpg"
-  },
+  }
+]
