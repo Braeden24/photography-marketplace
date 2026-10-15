@@ -11,16 +11,11 @@ function renderGallery() {
     const search = searchInput.value.trim().toLowerCase();
 
     const filteredPhotos = photos.filter(photo => {
-        const matchesCategory =
-            category === "all" || photo.category === category;
+        const matchesCategory = category === "all" || photo.category === category;
 
-        const matchesPhotographer =
-            photographer === "all" ||
-            photo.photographer === photographer;
+        const matchesPhotographer = photographer === "all" || photo.photographer === photographer;
 
-        const matchesSearch =
-            photo.title.toLowerCase().includes(search) ||
-            photo.photographer.toLowerCase().includes(search);
+        const matchesSearch =photo.title.toLowerCase().includes(search) || photo.photographer.toLowerCase().includes(search);
 
         return (
             matchesCategory &&
@@ -41,16 +36,8 @@ function renderGallery() {
                 <h2>${photo.title}</h2>
                 <p>${photo.photographer}</p>
 
-                <button type="button"
-                    data-photo-id="${photo.id}">
-                    View Photo
-                </button>
-            </div>
-        </article>
-    `).join("");
-
-    resultsCount.textContent =
-        `${filteredPhotos.length} photographs`;
+                <button type="button" data-photo-id="${photo.id}"> View Photo</button></div></article>`).join("");
+    resultsCount.textContent = `${filteredPhotos.length} photographs`;
 
     emptyMessage.hidden = filteredPhotos.length > 0;
 }
