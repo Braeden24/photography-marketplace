@@ -22,36 +22,6 @@ body {
    border-style: solid;
 }
 
-
-header img {
-   display: block;
-   width: 100%;
-}
-/*Topnav Styles*/
-.nav {
-  overflow: hidden;
-  background-color: black;
-}
-
-.nav a {
-  float: left;
-  font-size: 20px;
-  color: ivory;
-  text-align: center;
-  padding: 14px 16px;
-  text-decoration: none;
-  border-left: 1px solid grey;
-  border-right: 1px solid grey;
-}
-
-.nav a .shop {
-	float: right;
-}
-
-.nav a:hover{
-  background-color: grey;
-}
-
 article {
 	background-color: white;
 	font-size: 1.2em;
@@ -122,8 +92,6 @@ footer {
     display: flex;
     flex-direction: column;
     gap: 12px;
-    align-self: start;
-    position: sticky;
     top: 20px;
     padding: 20px;
     border: 1px solid #ddd;
