@@ -2,12 +2,29 @@ const gallery = document.getElementById("photo-gallery");
 const searchInput = document.getElementById("photo-search");
 const resultsCount = document.getElementById("results-count");
 const emptyMessage = document.getElementById("empty-message");
+const marketplace = document.getElementById("marketplace");
+const filterToggle = document.getElementById("filter-toggle");
+const filterSidebar = document.getElementById("filter-sidebar");
 const categoryFilters = document.querySelectorAll('input[name="category"]');
 const photographerFilters = document.querySelectorAll('input[name="photographer"]');
 
 function getSelectedValue(filters) {
     return document.querySelector(`input[name="${filters[0].name}"]:checked`).value;
 }
+
+filterToggle.addEventListener("click", () => {
+    const isCollapsed =
+        marketplace.classList.toggle("sidebar-collapsed");
+
+    filterToggle.textContent = isCollapsed
+        ? "Show Filters"
+        : "Hide Filters";
+
+    filterToggle.setAttribute(
+        "aria-expanded",
+        String(!isCollapsed)
+    );
+});
 
 function renderGallery() {
     const category = getSelectedValue(categoryFilters);
@@ -30,11 +47,7 @@ function renderGallery() {
 
     gallery.innerHTML = filteredPhotos.map(photo => `
         <article class="photo-card">
-            <img
-                src="${photo.image}"
-                alt="${photo.title}"
-                loading="lazy"
-            >
+            <img src="${photo.image}" alt="${photo.title}">
 
             <div class="photo-info">
                 <h2>${photo.title}</h2>
