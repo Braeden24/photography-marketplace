@@ -9,9 +9,9 @@
 	<script src="js/gallery.js" defer></script>
 </head>
 
-<main class="gallery">
-    <aside class="filter-sidebar">
-        <h2>Filters</h2>
+<main class="marketplace" id="marketplace">    
+	<aside class="filter-sidebar" id="filter-sidebar">        
+		<h2>Filters</h2>
        	<div class="filter-group">
     		<p class="filter-heading">Category</p>
 
@@ -63,6 +63,17 @@
 		<button id="clear-filters" type="button">
     		Clear Filters
 		</button>
+
+		<button
+    		class="filter-toggle"
+    		id="filter-toggle"
+    		type="button"
+    		aria-label="Hide filters"
+    		aria-controls="filter-sidebar"
+    		aria-expanded="true"
+		>
+    <span class="filter-icon">☷</span>
+</button>
     </aside>
 
     <section class="gallery-section">
