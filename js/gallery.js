@@ -12,20 +12,6 @@ function getSelectedValue(filters) {
     return document.querySelector(`input[name="${filters[0].name}"]:checked`).value;
 }
 
-filterToggle.addEventListener("click", () => {
-    const isCollapsed =
-        marketplace.classList.toggle("sidebar-collapsed");
-
-    filterToggle.textContent = isCollapsed
-        ? "Show Filters"
-        : "Hide Filters";
-
-    filterToggle.setAttribute(
-        "aria-expanded",
-        String(!isCollapsed)
-    );
-});
-
 function renderGallery() {
     const category = getSelectedValue(categoryFilters);
     const photographer = getSelectedValue(photographerFilters);
@@ -77,6 +63,20 @@ document.getElementById("clear-filters")
 
         renderGallery();
     });
+filterToggle.addEventListener("click", () => {
+    const isCollapsed =
+        marketplace.classList.toggle("sidebar-collapsed");
+
+    filterToggle.setAttribute(
+        "aria-expanded",
+        String(!isCollapsed)
+    );
+
+    filterToggle.setAttribute(
+        "aria-label",
+        isCollapsed ? "Show filters" : "Hide filters"
+    );
+});
 
 renderGallery();
 
