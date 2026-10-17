@@ -12,26 +12,57 @@
 <main class="gallery">
     <aside class="filter-sidebar">
         <h2>Filters</h2>
+       	<div class="filter-group">
+    		<p class="filter-heading">Category</p>
 
-        <label for="category-filter">Category</label>
-        <select id="category-filter">
-            <option value="all">All Photos</option>
-            <option value="animals">Animals</option>
-            <option value="landscapes">Landscapes</option>
-            <option value="plants">Plants</option>
-        </select>
+    		<label>
+        		<input type="radio" name="category" value="all" checked>
+        		All Photos
+   	 		</label>
 
-        <label for="photographer-filter">Photographer</label>
-        <select id="photographer-filter">
-            <option value="all">All Photographers</option>
-            <option value="Mike Klein">Mike Klein</option>
-            <option value="Sue Carlson">Sue Carlson</option>
-            <option value="Wendy Carlson">Wendy Carlson</option>
-        </select>
+    		<label>
+        		<input type="radio" name="category" value="animals">
+        		Animals
+   		 	</label>
 
-        <button id="clear-filters" type="button">
-            Clear Filters
-        </button>
+    		<label>
+        		<input type="radio" name="category" value="landscapes">
+        		Landscapes
+    		</label>
+
+    		<label>
+        		<input type="radio" name="category" value="plants">
+        		Plants
+    		</label>
+		</div>
+
+		<div class="filter-group">
+    		<p class="filter-heading">Photographer</p>
+
+    		<label>
+        		<input type="radio" name="photographer" value="all" checked>
+        		All Photographers
+    		</label>
+
+    		<label>
+        		<input type="radio" name="photographer" value="Mike Klein">
+        		Mike Klein
+    		</label>
+
+    		<label>
+        		<input type="radio" name="photographer" value="Sue Carlson">
+        		Sue Carlson
+    		</label>
+
+    		<label>
+        		<input type="radio" name="photographer" value="Wendy Carlson">
+        		Wendy Carlson
+    		</label>
+		</div>
+
+		<button id="clear-filters" type="button">
+    		Clear Filters
+		</button>
     </aside>
 
     <section class="gallery-section">
