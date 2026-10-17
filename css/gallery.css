@@ -82,7 +82,7 @@ body {
 }
 
 /* Sidebar buttons */
-.filter-sidebar button {
+.filter-sidebar button:not(.filter-toggle) {
     width: 100%;
     min-width: 0;
     padding: 10px;
@@ -92,6 +92,10 @@ body {
 
 .filter-sidebar button:hover {
     background: #eee;
+}
+
+.marketplace.sidebar-collapsed .filter-sidebar > :not(.filter-toggle) {
+    visibility: hidden;
 }
 
 /* Retractable filter tab */
