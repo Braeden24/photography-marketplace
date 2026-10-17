@@ -1,13 +1,17 @@
 const gallery = document.getElementById("photo-gallery");
-const categoryFilter = document.getElementById("category-filter");
-const photographerFilter = document.getElementById("photographer-filter");
 const searchInput = document.getElementById("photo-search");
 const resultsCount = document.getElementById("results-count");
 const emptyMessage = document.getElementById("empty-message");
+const categoryFilters = document.querySelectorAll('input[name="category"]');
+const photographerFilters = document.querySelectorAll('input[name="photographer"]');
+
+function getSelectedValue(filters) {
+    return document.querySelector(`input[name="${filters[0].name}"]:checked`).value;
+}
 
 function renderGallery() {
-    const category = categoryFilter.value;
-    const photographer = photographerFilter.value;
+    const category = getSelectedValue(categoryFilters);
+    const photographer = getSelectedValue(photographerFilters);
     const search = searchInput.value.trim().toLowerCase();
 
     const filteredPhotos = photos.filter(photo => {
@@ -42,18 +46,24 @@ function renderGallery() {
     emptyMessage.hidden = filteredPhotos.length > 0;
 }
 
-categoryFilter.addEventListener("change", renderGallery);
-photographerFilter.addEventListener("change", renderGallery);
+categoryFilters.forEach(filter => {
+    filter.addEventListener("change", renderGallery);
+});
+
+photographerFilters.forEach(filter => {
+    filter.addEventListener("change", renderGallery);
+});
+
 searchInput.addEventListener("input", renderGallery);
 
 document.getElementById("clear-filters")
     .addEventListener("click", () => {
-        categoryFilter.value = "all";
-        photographerFilter.value = "all";
+        document.querySelector('input[name="category"][value="all"]').checked = true;
+        document.querySelector('input[name="photographer"][value="all"]').checked = true;
         searchInput.value = "";
+
         renderGallery();
     });
 
-// Display all photographs on initial page load.
 renderGallery();
 
