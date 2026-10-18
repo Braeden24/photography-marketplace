@@ -2,6 +2,9 @@
 <html>
 <head>
    	<meta charset="utf-8" />
+	<link rel="preconnect" href="https://fonts.googleapis.com">
+	<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+	<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@400;500;600&family=Lato:wght@400;700&display=swap" rel="stylesheet">
    	<meta name="viewport" content="width=device-width,initial-scale=1.0">
    	<title>Photography</title>
    	<link rel="stylesheet" href="css/gallery.css" />
@@ -64,16 +67,9 @@
     		Clear Filters
 		</button>
 
-		<button
-    		class="filter-toggle"
-    		id="filter-toggle"
-    		type="button"
-    		aria-label="Hide filters"
-    		aria-controls="filter-sidebar"
-    		aria-expanded="true"
-		>
-    <span class="filter-icon">☷</span>
-</button>
+		<button class="filter-toggle" id="filter-toggle" type="button" aria-label="Hide filters" aria-controls="filter-sidebar" aria-expanded="true">
+			<span class="filter-icon">☷</span>
+		</button>
     </aside>
 
     <section class="gallery-section">
@@ -89,5 +85,9 @@
             No photographs match your filters.
         </p>
     </section>
+	
+	<aside class="cart-section">
+	</aside>
+	
 </main>
 </html>
