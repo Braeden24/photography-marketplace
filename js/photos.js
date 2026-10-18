@@ -10,11 +10,11 @@ const photos = [
   },
 
   {
-    id: "sc-duck",
+    id: "sc-ducks",
     title: "Duck",
     photographer: "Sue Carlson",
     category: "animals",
-    image: "assets/animals/sc-duck.jpg"
+    image: "assets/animals/sc-ducks.jpg"
   },
 
   {
@@ -38,7 +38,7 @@ const photos = [
     title: "Owl",
     photographer: "Sue Carlson",
     category: "animals",
-    image: "assets/animal/sc-owl.jpg"
+    image: "assets/animals/sc-owl.jpg"
   },
 
   {
@@ -159,7 +159,7 @@ const photos = [
     title: "Sunset",
     photographer: "Sue Carlson",
     category: "landscape",
-    image: "assets/landscapes/sc-sunset.jpg"
+    image: "assets/landscapes/sc-sunset.png"
   },
 
   //Plants
@@ -168,7 +168,7 @@ const photos = [
     title: "Eye",
     photographer: "Mike Klein",
     category: "plants",
-    image: "assets/landscapes/mk-eye.jpeg"
+    image: "assets/plants/mk-eye.jpeg"
   },
   
   {
@@ -176,7 +176,7 @@ const photos = [
     title: "Roots",
     photographer: "Mike Klein",
     category: "plants",
-    image: "assets/landscapes/mk-Roots.jpeg"
+    image: "assets/plants/mk-Roots.jpeg"
   },
 
   {
@@ -184,7 +184,7 @@ const photos = [
     title: "Bayou",
     photographer: "Sue Carlson",
     category: "plants",
-    image: "assets/landscapes/sc-bayou.jpg"
+    image: "assets/plants/sc-bayou.jpg"
   },
 
   {
@@ -192,6 +192,6 @@ const photos = [
     title: "treerock",
     photographer: "Sue Carlson",
     category: "plants",
-    image: "assets/landscapes/sc-treerock.jpg"
+    image: "assets/plants/sc-treerock.jpg"
   }
 ]
