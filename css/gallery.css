@@ -11,7 +11,7 @@ body {
 	font-family: 'Lato', sans-serif;
     width: 100%;
     margin: 0 auto;
-	background-image: linear-gradient(to bottom, #A7B8B8, #718675),url('assets/woodBackground.jpg');;
+	background-image: linear-gradient(to bottom, #A7B8B8, #718675),url('assets/woodBackground.jpg');
     border: 1px solid black;
 }
 
