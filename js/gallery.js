@@ -4,9 +4,11 @@ const resultsCount = document.getElementById("results-count");
 const emptyMessage = document.getElementById("empty-message");
 const marketplace = document.getElementById("marketplace");
 const filterToggle = document.getElementById("filter-toggle");
+const cartToggle = document.getElementById("cart-toggle");
 const filterSidebar = document.getElementById("filter-sidebar");
 const categoryFilters = document.querySelectorAll('input[name="category"]');
 const photographerFilters = document.querySelectorAll('input[name="photographer"]');
+
 
 function getSelectedValue(filters) {
     return document.querySelector(`input[name="${filters[0].name}"]:checked`).value;
@@ -75,6 +77,21 @@ filterToggle.addEventListener("click", () => {
     filterToggle.setAttribute(
         "aria-label",
         isCollapsed ? "Show filters" : "Hide filters"
+    );
+});
+
+cartToggle.addEventListener("click", () => {
+    const isCollapsed =
+        marketplace.classList.toggle("cart-collapsed");
+
+    cartToggle.setAttribute(
+        "aria-expanded",
+        String(!isCollapsed)
+    );
+
+    cartToggle.setAttribute(
+        "aria-label",
+        isCollapsed ? "Show cart" : "Hide cart"
     );
 });
 
