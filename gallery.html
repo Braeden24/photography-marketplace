@@ -86,8 +86,35 @@
         </p>
     </section>
 	
-	<aside class="cart-section">
-	</aside>
+	<aside class="cart-sidebar" id="cart-sidebar">
+
+    <h2>Cart</h2>
+
+    <div id="cart-items" class="cart-items">
+        <p class="cart-empty">Your cart is empty.</p>
+    </div>
+
+    <div class="cart-total">
+        <strong>Total:</strong>
+        <span id="cart-total">$0.00</span>
+    </div>
+
+    <button id="checkout-button" type="button">
+        Proceed to Checkout
+    </button>
+
+    <button
+        class="cart-toggle"
+        id="cart-toggle"
+        type="button"
+        aria-label="Hide cart"
+        aria-controls="cart-sidebar"
+        aria-expanded="true"
+    >
+        <span class="cart-icon">🛒</span>
+    </button>
+
+</aside>
 	
 </main>
 </html>
