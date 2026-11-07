@@ -100,6 +100,23 @@ h1, h2, h3 {
     visibility: hidden;
 }
 
+/* Collapsed cart sidebar */
+.marketplace.cart-collapsed .cart-sidebar {
+    flex-basis: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+
+/* Hide cart contents while collapsed */
+.marketplace.cart-collapsed .cart-sidebar > :not(.cart-toggle) {
+    visibility: hidden;
+}
+
 /* Retractable filter tab */
 .filter-toggle {
     position: absolute;
@@ -215,4 +232,115 @@ h1, h2, h3 {
 	font-family: 'Lato', sans-serif;
     min-width: 0;
     padding: 16px;
+}
+
+/* Cart Sidebar */
+.cart-sidebar {
+    position: sticky;
+    top: 0;
+    align-self: flex-start;
+
+    display: flex;
+    flex: 0 0 240px;
+    flex-direction: column;
+    gap: 12px;
+
+    height: 100vh;
+    height: 100dvh;
+
+    min-width: 0;
+    padding: 20px;
+
+    margin: 40px 0 40px 20px;
+
+    border: 1px solid #ddd;
+    border-radius: 20px 0 0 20px;
+
+    background: #fff;
+
+    overflow: visible;
+
+    flex-shrink: 0;
+
+    transition:
+        flex-basis 0.25s ease,
+        padding 0.25s ease,
+        border-width 0.25s ease;
+}
+
+
+/* Cart contents */
+.cart-items {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+
+    flex: 1;
+
+    min-height: 0;
+    overflow-y: auto;
+}
+
+.cart-empty {
+    margin: 0;
+    color: #666;
+}
+
+
+/* Cart total */
+.cart-total {
+    display: flex;
+    justify-content: space-between;
+
+    padding-top: 12px;
+
+    border-top: 1px solid #ddd;
+}
+
+
+/* Checkout button */
+.cart-sidebar button:not(.cart-toggle) {
+    width: 100%;
+    min-width: 0;
+
+    padding: 10px;
+
+    font: inherit;
+
+    cursor: pointer;
+}
+
+.cart-sidebar button:not(.cart-toggle):hover {
+    background: #eee;
+}
+
+
+/* Retractable cart tab */
+.cart-toggle {
+    position: absolute;
+    top: 50%;
+    left: -28px;
+    transform: translateY(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 28px;
+    height: 64px;
+    padding: 0;
+    border: 1px solid #ddd;
+    border-right: none;
+    border-radius: 8px 0 0 8px;
+    background: #fff;
+    color: #333;
+    font-size: 18px;
+    cursor: pointer;
+    z-index: 10;
+}
+
+.cart-toggle:hover {
+    background: #f0f0f0;
+}
+
+.cart-icon {
+    display: block;
 }
