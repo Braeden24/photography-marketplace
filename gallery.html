@@ -73,7 +73,6 @@
     </aside>
 
     <section class="gallery-section">
-        <h1>Explore Photography</h1>
 
         <input type="search" id="photo-search" placeholder="Search photographs...">
 
@@ -85,6 +84,24 @@
             No photographs match your filters.
         </p>
     </section>
+	
+	<div class="photo-lightbox" id="photo-lightbox" aria-hidden="true">
+
+    <button
+        class="lightbox-close"
+        id="lightbox-close"
+        type="button"
+        aria-label="Close photo"
+    >
+    </button>
+
+    <img
+        id="lightbox-image"
+        src=""
+        alt=""
+    >
+
+</div>
 	
 	<aside class="cart-sidebar" id="cart-sidebar">
 
