@@ -41,7 +41,18 @@ function renderGallery() {
                 <h2>${photo.title}</h2>
                 <p>${photo.photographer}</p>
 
-                <button type="button" data-photo-id="${photo.id}"> View Photo</button></div></article>`).join("");
+                <div class="photo-actions">
+                    <button type="button" data-photo-id="${photo.id}">
+                        View Photo
+                    </button>
+
+                    <button type="button" class="add-to-cart" data-photo-id="${photo.id}">
+                        Add to Cart
+                    </button>
+                </div>
+            </div>
+        </article>
+    `).join("");    
     resultsCount.textContent = `${filteredPhotos.length} photographs`;
 
     emptyMessage.hidden = filteredPhotos.length > 0;
