@@ -234,6 +234,24 @@ h1, h2, h3 {
     padding: 16px;
 }
 
+.photo-actions {
+    display: flex;
+    width: 100%;
+    gap: 8px;
+    margin-top: auto;
+}
+
+.photo-actions button {
+    flex: 1;
+    padding: 10px;
+    font: inherit;
+    cursor: pointer;
+}
+
+.photo-actions button:hover {
+    background: #eee;
+}
+
 /* Cart Sidebar */
 .cart-sidebar {
     position: sticky;
