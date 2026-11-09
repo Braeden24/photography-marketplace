@@ -28,7 +28,7 @@ const photos = [
   {
     id: "sc-loon",
     title: "Loon",
-    photographer: "Sue Carslon",
+    photographer: "Sue Carlson",
     category: "animals",
     image: "assets/animals/sc-loon.jpg"
   },
