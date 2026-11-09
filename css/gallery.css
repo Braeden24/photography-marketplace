@@ -17,7 +17,7 @@ body {
 
 h1, h2, h3 {
     font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
+    font-weight: 800;
 }
 
 /* Marketplace layout */
@@ -172,10 +172,11 @@ h1, h2, h3 {
 
 #photo-search {
     display: block;
+	border-radius: 10px;
     width: 100%;
     min-width: 0;
     padding: 12px;
-    margin-bottom: 16px;
+    margin: 24px 0px 16px 0px;
     font: inherit;
 }
 
@@ -222,34 +223,123 @@ h1, h2, h3 {
     object-fit: cover;
 }
 
+.photo-preview {
+    position: relative;
+
+    width: 100%;
+
+    cursor: pointer;
+    overflow: hidden;
+}
+
+.photo-preview img {
+    display: block;
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+    transition: transform 0.25s ease;
+}
+
+.photo-preview:hover img {
+    transform: scale(1.03);
+}
+
 /* Photo details */
 .photo-info {
     display: flex;
-    flex: 1;
     flex-direction: column;
-    align-items: flex-start;
-    gap: 8px;
-	font-family: 'Lato', sans-serif;
-    min-width: 0;
-    padding: 16px;
+    gap: 4px;
+
+    padding: 10px 12px;
 }
 
-.photo-actions {
-    display: flex;
+.photo-info h2 {
+    margin: 0;
+    font-size: 1.5rem;
+	text-align: center;
+}
+
+.photo-info p {
+    margin: 0;
+    font-size: 0.9rem;
+	text-align: center;
+	color: gray;
+}
+
+.photo-info .add-to-cart {
     width: 100%;
-    gap: 8px;
-    margin-top: auto;
-}
+    margin-top: 6px;
 
-.photo-actions button {
-    flex: 1;
-    padding: 10px;
+    padding: 8px;
+
     font: inherit;
     cursor: pointer;
 }
 
-.photo-actions button:hover {
-    background: #eee;
+.photo-lightbox {
+    position: fixed;
+    inset: 0;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 40px;
+
+    background: rgba(0, 0, 0, 0.9);
+
+    z-index: 1000;
+
+    opacity: 0;
+    visibility: hidden;
+
+    transition:
+        opacity 0.2s ease,
+        visibility 0.2s ease;
+}
+
+.photo-lightbox.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.photo-lightbox img {
+    display: block;
+    max-width: 95vw;
+    max-height: 90vh;
+    width: auto;
+    height: auto;
+    object-fit: contain;
+}
+
+
+/* Close button */
+.lightbox-close {
+    position: absolute;
+
+    top: 20px;
+    right: 25px;
+
+    width: 45px;
+    height: 45px;
+
+    border: none;
+    border-radius: 50%;
+
+    background: rgba(255, 255, 255, 0.15);
+
+    color: white;
+
+    font-size: 32px;
+    line-height: 1;
+
+    cursor: pointer;
+
+    z-index: 1001;
+}
+
+.lightbox-close:hover {
+    background: rgba(255, 255, 255, 0.3);
 }
 
 /* Cart Sidebar */
@@ -361,4 +451,54 @@ h1, h2, h3 {
 
 .cart-icon {
     display: block;
+}
+
+/* Individual cart items */
+.cart-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+
+    padding-bottom: 12px;
+
+    border-bottom: 1px solid #ddd;
+}
+
+.cart-item img {
+    width: 75px;
+    height: 75px;
+
+    object-fit: cover;
+
+    border-radius: 6px;
+}
+
+.cart-item-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.cart-item-info h3 {
+    margin: 0;
+    font-size: 1rem;
+}
+
+.cart-item-info p {
+    margin: 4px 0;
+    font-size: 0.85rem;
+    color: #666;
+}
+
+.cart-item-info button {
+    padding: 4px 8px !important;
+    font-size: 0.8rem;
+    cursor: pointer;
+}
+
+/* Added to cart button */
+.add-to-cart:disabled {
+    background: #d5ded5;
+    color: #555;
+    cursor: default;
+    opacity: 0.8;
 }
