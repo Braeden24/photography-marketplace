@@ -126,7 +126,7 @@ const photos = [
     id: "mk-waterfall",
     title: "Waterfall",
     photographer: "Mike Klein",
-    category: "landscape",
+    category: "landscapes",
     image: "assets/landscapes/mk-waterfall.jpeg"
   },
 
@@ -134,7 +134,7 @@ const photos = [
     id: "mk-superior",
     title: "Superior",
     photographer: "Mike Klein",
-    category: "landscape",
+    category: "landscapes",
     image: "assets/landscapes/mk-superior.jpeg"
   },
 
@@ -142,7 +142,7 @@ const photos = [
     id: "sc-aurora",
     title: "Aurora",
     photographer: "Sue Carlson",
-    category: "landscape",
+    category: "landscapes",
     image: "assets/landscapes/sc-aurora.jpg"
   },
 
@@ -150,7 +150,7 @@ const photos = [
     id: "sc-gooseberry",
     title: "Gooseberry Falls",
     photographer: "Sue Carlson",
-    category: "landscape",
+    category: "landscapes",
     image: "assets/landscapes/sc-gooseberry.jpg"
   },
 
@@ -158,7 +158,7 @@ const photos = [
     id: "sc-sunset",
     title: "Sunset",
     photographer: "Sue Carlson",
-    category: "landscape",
+    category: "landscapes",
     image: "assets/landscapes/sc-sunset.png"
   },
 
