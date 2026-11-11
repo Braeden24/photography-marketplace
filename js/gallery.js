@@ -2,34 +2,52 @@ const gallery = document.getElementById("photo-gallery");
 const searchInput = document.getElementById("photo-search");
 const resultsCount = document.getElementById("results-count");
 const emptyMessage = document.getElementById("empty-message");
+
 const marketplace = document.getElementById("marketplace");
+
 const filterToggle = document.getElementById("filter-toggle");
 const cartToggle = document.getElementById("cart-toggle");
-const filterSidebar = document.getElementById("filter-sidebar");
+
 const lightbox = document.getElementById("photo-lightbox");
 const lightboxImage = document.getElementById("lightbox-image");
 const lightboxClose = document.getElementById("lightbox-close");
+
 const cartItems = document.getElementById("cart-items");
 const cartTotal = document.getElementById("cart-total");
+
 const categoryFilters = document.querySelectorAll('input[name="category"]');
 const photographerFilters = document.querySelectorAll('input[name="photographer"]');
+
 let cart = [];
 
+
 function getSelectedValue(filters) {
-    return document.querySelector(`input[name="${filters[0].name}"]:checked`).value;
+    const selected = Array.from(filters).find(filter => filter.checked);
+    return selected ? selected.value : "all";
 }
 
+
 function renderGallery() {
-    const category = getSelectedValue(categoryFilters);
-    const photographer = getSelectedValue(photographerFilters);
-    const search = searchInput.value.trim().toLowerCase();
+
+    const selectedCategory = getSelectedValue(categoryFilters);
+    const selectedPhotographer = getSelectedValue(photographerFilters);
+
+    const searchTerm = searchInput.value.trim().toLowerCase();
 
     const filteredPhotos = photos.filter(photo => {
-        const matchesCategory = category === "all" || photo.category === category;
 
-        const matchesPhotographer = photographer === "all" || photo.photographer === photographer;
+        const matchesCategory =
+            selectedCategory === "all" ||
+            photo.category === selectedCategory;
 
-        const matchesSearch =photo.title.toLowerCase().includes(search) || photo.photographer.toLowerCase().includes(search);
+        const matchesPhotographer =
+            selectedPhotographer === "all" ||
+            photo.photographer === selectedPhotographer;
+
+        const matchesSearch =
+            photo.title.toLowerCase().includes(searchTerm) ||
+            photo.photographer.toLowerCase().includes(searchTerm) ||
+            photo.category.toLowerCase().includes(searchTerm);
 
         return (
             matchesCategory &&
@@ -38,98 +56,124 @@ function renderGallery() {
         );
     });
 
-    gallery.innerHTML = filteredPhotos.map(photo => `
-		<article class="photo-card">
 
-			<div class="photo-preview" data-photo-id="${photo.id}" tabindex="0" role="button">
-				<img src="${photo.image}" alt="${photo.title}">
-			</div>
+    gallery.innerHTML = filteredPhotos.map(photo => {
 
-			<div class="photo-info">
-				<h2>${photo.title}</h2>
-				<p>${photo.photographer}</p>
+        const alreadyInCart = cart.some(
+            item => item.id === photo.id
+        );
 
-				<button type="button" class="add-to-cart" data-photo-id="${photo.id}" ${cart.some(item => item.id === photo.id) ? "disabled" : ""}>
-					${cart.some(item => item.id === photo.id) ? "In Cart" : "Add to Cart"}
-				</button>
-			</div>
+        return `
+            <article class="photo-card">
 
-		</article>
-	`).join("");
-    resultsCount.textContent = `${filteredPhotos.length} photographs`;
-    emptyMessage.hidden = filteredPhotos.length > 0;
+                <div
+                    class="photo-preview"
+                    data-photo-id="${photo.id}"
+                    tabindex="0"
+                    role="button"
+                    aria-label="View ${photo.title}"
+                >
+                    <img
+                        src="${photo.image}"
+                        alt="${photo.title}"
+                    >
+                </div>
+
+                <div class="photo-info">
+
+                    <h2>${photo.title}</h2>
+
+                    <p>${photo.photographer}</p>
+
+                    <button
+                        type="button"
+                        class="add-to-cart"
+                        data-photo-id="${photo.id}"
+                        ${alreadyInCart ? "disabled" : ""}
+                    >
+                        ${alreadyInCart ? "In Cart" : "Add to Cart"}
+                    </button>
+
+                </div>
+
+            </article>
+        `;
+    }).join("");
+
+
+    resultsCount.textContent =
+        `${filteredPhotos.length} photographs`;
+
+    emptyMessage.hidden =
+        filteredPhotos.length > 0;
 }
 
-categoryFilters.forEach(filter => {
-    filter.addEventListener("change", renderGallery);
-});
+function renderCart() {
 
-photographerFilters.forEach(filter => {
-    filter.addEventListener("change", renderGallery);
-});
+    if (cart.length === 0) {
 
-searchInput.addEventListener("input", renderGallery);
+        cartItems.innerHTML = `
+            <p class="cart-empty">
+                Your cart is empty.
+            </p>
+        `;
 
-document.getElementById("clear-filters")
-    .addEventListener("click", () => {
-        document.querySelector('input[name="category"][value="all"]').checked = true;
-        document.querySelector('input[name="photographer"][value="all"]').checked = true;
-        searchInput.value = "";
+        cartTotal.textContent = "$0.00";
 
-        renderGallery();
-    });
-
-filterToggle.addEventListener("click", () => {
-    const isCollapsed =
-        marketplace.classList.toggle("sidebar-collapsed");
-
-    filterToggle.setAttribute(
-        "aria-expanded",
-        String(!isCollapsed)
-    );
-
-    filterToggle.setAttribute(
-        "aria-label",
-        isCollapsed ? "Show filters" : "Hide filters"
-    );
-});
+        return;
+    }
 
 
-cartItems.addEventListener("click", event => {
+    cartItems.innerHTML = cart.map(photo => {
 
-    const button = event.target.closest(".remove-from-cart");
+        return `
+            <div class="cart-item">
 
-    const photoId = button.dataset.photoId;
-    cart = cart.filter(photo => photo.id !== photoId);
-    renderCart();
-    renderGallery();
-});
+                <img
+                    src="${photo.image}"
+                    alt="${photo.title}"
+                >
 
-cartToggle.addEventListener("click", () => {
-    const isCollapsed =
-        marketplace.classList.toggle("cart-collapsed");
+                <div class="cart-item-info">
 
-    cartToggle.setAttribute(
-        "aria-expanded",
-        String(!isCollapsed)
-    );
+                    <h3>${photo.title}</h3>
 
-    cartToggle.setAttribute(
-        "aria-label",
-        isCollapsed ? "Show cart" : "Hide cart"
-    );
-});
+                    <p>${photo.photographer}</p>
+
+                    <button
+                        type="button"
+                        class="remove-from-cart"
+                        data-photo-id="${photo.id}"
+                    >
+                        Remove
+                    </button>
+
+                </div>
+
+            </div>
+        `;
+    }).join("");
+
+
+    cartTotal.textContent = "$0.00";
+}
 
 gallery.addEventListener("click", event => {
 
-    // Add to Cart
     const button = event.target.closest(".add-to-cart");
 
     if (button) {
-        const photoId = button.dataset.photoId;
-        const photo = photos.find(photo => photo.id === photoId);
 
-        if (!photo || cart.some(item => item.id === photoId)) {
+        const photoId = button.dataset.photoId;
+
+        const photo = photos.find(
+            photo => photo.id === photoId
+        );
+
+        if (!photo) return;
+
+        // Prevent duplicate items
+        if (cart.some(item => item.id === photoId)) {
             return;
         }
 
@@ -141,35 +185,155 @@ gallery.addEventListener("click", event => {
         return;
     }
 
-    // Open Lightbox
     const preview = event.target.closest(".photo-preview");
 
     if (preview) {
+
         const photoId = preview.dataset.photoId;
-        const photo = photos.find(photo => photo.id === photoId);
+
+        const photo = photos.find(
+            photo => photo.id === photoId
+        );
 
         if (!photo) return;
+
         lightboxImage.src = photo.image;
         lightboxImage.alt = photo.title;
+
         lightbox.classList.add("active");
-        lightbox.setAttribute("aria-hidden", "false");
+
+        lightbox.setAttribute(
+            "aria-hidden",
+            "false"
+        );
+
+        // Prevent the page from scrolling
         document.body.style.overflow = "hidden";
     }
 });
 
+cartItems.addEventListener("click", event => {
+
+    const button = event.target.closest(
+        ".remove-from-cart"
+    );
+
+    if (!button) return;
+
+    const photoId = button.dataset.photoId;
+
+    cart = cart.filter(
+        item => item.id !== photoId
+    );
+
+    renderCart();
+    renderGallery();
+});
+
 function closeLightbox() {
+
     lightbox.classList.remove("active");
-    lightbox.setAttribute("aria-hidden", "true");
+
+    lightbox.setAttribute(
+        "aria-hidden",
+        "true"
+    );
+
     lightboxImage.src = "";
+
     document.body.style.overflow = "";
 }
 
-lightboxClose.addEventListener("click", closeLightbox);
+
+lightboxClose.addEventListener(
+    "click",
+    closeLightbox
+);
+
 
 lightbox.addEventListener("click", event => {
+
     if (event.target === lightbox) {
         closeLightbox();
     }
+});
+
+
+document.addEventListener("keydown", event => {
+
+    if (
+        event.key === "Escape" &&
+        lightbox.classList.contains("active")
+    ) {
+        closeLightbox();
+    }
+});
+
+categoryFilters.forEach(filter => {
+
+    filter.addEventListener(
+        "change",
+        renderGallery
+    );
+});
+
+
+photographerFilters.forEach(filter => {
+
+    filter.addEventListener(
+        "change",
+        renderGallery
+    );
+});
+
+
+searchInput.addEventListener(
+    "input",
+    renderGallery
+);
+
+const clearFiltersButton =
+    document.getElementById("clear-filters");
+
+if (clearFiltersButton) {
+
+    clearFiltersButton.addEventListener(
+        "click",
+        () => {
+
+            categoryFilters.forEach(filter => {
+
+                filter.checked =
+                    filter.value === "all";
+            });
+
+
+            photographerFilters.forEach(filter => {
+
+                filter.checked =
+                    filter.value === "all";
+            });
+
+
+            searchInput.value = "";
+
+            renderGallery();
+        }
+    );
+}
+
+filterToggle.addEventListener("click", () => {
+
+    marketplace.classList.toggle(
+        "sidebar-collapsed"
+    );
+});
+
+cartToggle.addEventListener("click", () => {
+
+    marketplace.classList.toggle(
+        "cart-collapsed"
+    );
 });
 
 renderGallery();
