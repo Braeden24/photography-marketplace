@@ -1,4 +1,4 @@
-### photography-marketplace
+# photography-marketplace
 A responsive photography marketplace website designed to showcase and sell nature photographs.
 The site allows users to browse, filter and search through nature themed photography, add 
 photos to a shopping cart, select print sizes, and complete a simulated checkout process.
@@ -6,7 +6,7 @@ photos to a shopping cart, select print sizes, and complete a simulated checkout
 This project was created as a front-end web development project with a focus on responsive design,
 interactive functionality through JavaScript, and created a realistic online marketplace experience.
 
-##Features
+## Features
 
 - Responsive photography gallery
 - Filter photographs by category and photographer
@@ -21,18 +21,18 @@ interactive functionality through JavaScript, and created a realistic online mar
 - Order summery with selected photos and sizes
 - Simulated order confirmation
 
-#Technologies Used
+### Technologies Used
 - HTML5
 - CSS3
 - JavaScript
 - LocalStorage
 - Google Fonts
 
-#HTML
+### HTML
 
 HTML is used to structure the site's gallery and checkout pages interfaces
 
-#CSS
+### CSS
 
 CSS is used for the site's overall layout and visual design
 
@@ -47,12 +47,12 @@ JavaScript is used to provide the site its interactive funtionallity, inculiding
 - Checkout form validation
 - Order confirmation
 
-#Local Storage
+### Local Storage
 
 The shopping cart used the browsers local storage to preserve selected photographs when
 navigating between the gallery and checkout page
 
-##Project Structure
+## Project Structure
 photography-marketplace/
 │
 ├── assets/
@@ -73,5 +73,5 @@ photography-marketplace/
 ├── checkout.html
 └── README.md
 
-##How It Works
+## How It Works
 
