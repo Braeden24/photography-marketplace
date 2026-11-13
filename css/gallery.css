@@ -1,8 +1,6 @@
 @charset "utf-8";
 
-*,
-*::before,
-*::after {
+*, *::before, *::after {
     box-sizing: border-box;
 }
 
@@ -97,23 +95,6 @@ h1, h2, h3 {
 }
 
 .marketplace.sidebar-collapsed .filter-sidebar > :not(.filter-toggle) {
-    visibility: hidden;
-}
-
-/* Collapsed cart sidebar */
-.marketplace.cart-collapsed .cart-sidebar {
-    flex-basis: 0;
-
-    padding-left: 0;
-    padding-right: 0;
-
-    border-left-width: 0;
-    border-right-width: 0;
-}
-
-
-/* Hide cart contents while collapsed */
-.marketplace.cart-collapsed .cart-sidebar > :not(.cart-toggle) {
     visibility: hidden;
 }
 
@@ -453,6 +434,22 @@ h1, h2, h3 {
     display: block;
 }
 
+/* Collapsed cart sidebar */
+.marketplace.cart-collapsed .cart-sidebar {
+    flex-basis: 0;
+
+    padding-left: 0;
+    padding-right: 0;
+
+    border-left-width: 0;
+    border-right-width: 0;
+}
+
+
+.marketplace.cart-collapsed .cart-sidebar > :not(.cart-toggle) {
+    visibility: hidden;
+}
+
 /* Individual cart items */
 .cart-item {
     display: flex;
@@ -462,15 +459,6 @@ h1, h2, h3 {
     padding-bottom: 12px;
 
     border-bottom: 1px solid #ddd;
-}
-
-.cart-item img {
-    width: 75px;
-    height: 75px;
-
-    object-fit: cover;
-
-    border-radius: 6px;
 }
 
 .cart-item-info {
@@ -501,4 +489,80 @@ h1, h2, h3 {
     color: #555;
     cursor: default;
     opacity: 0.8;
+}
+
+
+/* Cart item count indicator */
+.cart-count {
+    position: absolute;
+    top: -9px;
+    right: -9px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    min-width: 22px;
+    height: 22px;
+    padding: 0 5px;
+
+    border-radius: 50%;
+    background: #718675;
+    color: white;
+
+    font-size: 12px;
+    font-weight: 700;
+    line-height: 1;
+}
+
+/* Cart size selector */
+.cart-item-info select {
+    display: block;
+
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+
+    margin: 6px 0;
+    padding: 7px 24px 7px 8px;
+
+    border: 1px solid #ccc;
+    border-radius: 6px;
+
+    background-color: #f8f8f5;
+    color: #333;
+
+    font-family: inherit;
+    font-size: 0.8rem;
+
+    cursor: pointer;
+}
+
+.cart-item-info select:focus {
+    outline: 2px solid #718675;
+    outline-offset: 2px;
+}
+
+/* Selected item price */
+.cart-item-info .cart-item-price {
+    margin: 4px 0;
+    color: #718675;
+    font-size: 0.9rem;
+    font-weight: 700;
+}
+
+
+/* Size selector focus */
+.cart-item-info select:focus {
+    outline: 2px solid #718675;
+    outline-offset: 2px;
+}
+
+.cart-item img {
+    flex: 0 0 65px;
+    width: 65px;
+    height: 65px;
+
+    object-fit: cover;
+    border-radius: 6px;
 }
