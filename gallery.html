@@ -12,12 +12,15 @@
 	<script src="js/gallery.js" defer></script>
 </head>
 
-<main class="marketplace" id="marketplace">    
-	<aside class="filter-sidebar" id="filter-sidebar">        
+<main class="marketplace" id="marketplace">
+
+	<!--FILTER SIDEBAR-->
+	<aside class="filter-sidebar" id="filter-sidebar">       
 		<h2>Filters</h2>
        	<div class="filter-group">
     		<p class="filter-heading">Category</p>
 
+			<!--CATEGORIES FILTER-->
     		<label>
         		<input type="radio" name="category" value="all" checked>
         		All Photos
@@ -39,6 +42,7 @@
     		</label>
 		</div>
 
+		<!--PHOTOGRAPHERS FILTER-->
 		<div class="filter-group">
     		<p class="filter-heading">Photographer</p>
 
@@ -62,51 +66,42 @@
         		Wendy Carlson
     		</label>
 		</div>
-
+		
+		<!--RESET FILTERS-->
 		<button id="clear-filters" type="button">
     		Clear Filters
 		</button>
 
+		<!--COLLAPSE FILTER-->
 		<button class="filter-toggle" id="filter-toggle" type="button" aria-label="Hide filters" aria-controls="filter-sidebar" aria-expanded="true">
 			<span class="filter-icon">☷</span>
 		</button>
     </aside>
 
+	<!--MAIN GALLLERY-->
     <section class="gallery-section">
 
         <input type="search" id="photo-search" placeholder="Search photographs...">
-
         <p id="results-count"></p>
-
+		
         <div id="photo-gallery" class="photo-gallery"></div>
-
         <p id="empty-message" hidden>
             No photographs match your filters.
         </p>
     </section>
 	
-	<div class="photo-lightbox" id="photo-lightbox" aria-hidden="true">
-
-    <button
-        class="lightbox-close"
-        id="lightbox-close"
-        type="button"
-        aria-label="Close photo"
-    >
-    </button>
-
-    <img
-        id="lightbox-image"
-        src=""
-        alt=""
-    >
+	<!--LIGHTBOX-->
+	<div class="photo-lightbox" id="photo-lightbox">
+    <button class="lightbox-close" id="lightbox-close" type="button"> X </button>
+    <img id="lightbox-image">
 
 </div>
 	
+	<!--CART-->
 	<aside class="cart-sidebar" id="cart-sidebar">
-
+	
     <h2>Cart</h2>
-
+	
     <div id="cart-items" class="cart-items">
         <p class="cart-empty">Your cart is empty.</p>
     </div>
@@ -120,16 +115,10 @@
         Proceed to Checkout
     </button>
 
-    <button
-        class="cart-toggle"
-        id="cart-toggle"
-        type="button"
-        aria-label="Hide cart"
-        aria-controls="cart-sidebar"
-        aria-expanded="true"
-    >
-        <span class="cart-icon">🛒</span>
-    </button>
+    <button id="cart-toggle" class="cart-toggle">
+		<span class="cart-icon">🛒</span>
+		<span id="cart-count" class="cart-count">0</span>
+	</button>
 
 </aside>
 	
