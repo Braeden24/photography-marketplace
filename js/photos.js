@@ -192,6 +192,6 @@ const photos = [
     title: "treerock",
     photographer: "Sue Carlson",
     category: "plants",
-    image: "assets/plants/sc-treerock.jpg"
+    image: "assets/plants/sc-treerock.JPG"
   }
 ]
