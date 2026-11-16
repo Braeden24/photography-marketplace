@@ -143,7 +143,7 @@ const photos = [
     title: "Aurora",
     photographer: "Sue Carlson",
     category: "landscapes",
-    image: "assets/landscapes/sc-aurora.jpg"
+    image: "assets/landscapes/sc-aurora.JPG"
   },
 
   {
