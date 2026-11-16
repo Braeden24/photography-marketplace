@@ -142,9 +142,7 @@ I learned how browser localStorage can be used to preserve application data betw
 I spent significant time refining the layout and interaction of the site, including retractable sidebars, search and filtering, larger photography cards, cart controls, and responsive layouts.
 This helped me better understand how functionality and visual design need to work together to create a usable interface.
 
-### Future Improvements
-
-## Possible future improvements include:
+## Future Improvements
 - Connecting the site to a backend database
 - Adding user accounts
 - Adding photographer accounts and photo uploads
