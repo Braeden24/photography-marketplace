@@ -176,7 +176,7 @@ const photos = [
     title: "Roots",
     photographer: "Mike Klein",
     category: "plants",
-    image: "assets/plants/mk-Roots.jpeg"
+    image: "assets/plants/mk-roots.jpeg"
   },
 
   {
