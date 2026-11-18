@@ -36,7 +36,7 @@ HTML is used to structure the site's gallery and checkout pages interfaces
 
 CSS is used for the site's overall layout and visual design
 
-#JavaScript
+## JavaScript
 JavaScript is used to provide the site its interactive funtionallity, inculiding:
 - Dynamic gallery rendering
 - Search and filtering
